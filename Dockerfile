@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:trusty
 MAINTAINER Milo van der Linden <milo@dogodigi.net>
 
 ENV CARTO_ENV development
