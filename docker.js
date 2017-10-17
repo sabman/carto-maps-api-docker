@@ -3,7 +3,8 @@ var config = {
   port: __WINDSHAFT_PORT__,
   host: '0.0.0.0',
   uv_threadpool_size: undefined,
-  user_from_host: '^(.*)\\.localhost',
+  // user_from_host: '^(.*)\\.localhost',
+  user_from_host: '\/user\/(.*)$',
   base_url_templated: '(?:/api/v1/map/named|/user/:user/api/v1/map/named|/tiles/template)',
   base_url_detached: '(?:/api/v1/map|/user/:user/api/v1/map|/tiles/layergroup)',
   resources_url_templates: {
