@@ -26,10 +26,10 @@ RUN apt-get install -y make g++ pkg-config git-core \
 RUN npm install n -g && n 6
 RUN npm install yarn@0.28.4 -g
 
-RUN git clone --depth 1 --branch master https://github.com/cartodb/windshaft-cartodb.git /windshaft-cartodb
-
+RUN git clone https://github.com/cartodb/windshaft-cartodb.git /windshaft-cartodb
 RUN cd /windshaft-cartodb
-ENV WINDSHAFT_STABLE_VERSION 3.6.3
+WORKDIR /windshaft-cartodb
+ENV WINDSHAFT_STABLE_VERSION 4.0.0
 RUN git checkout tags/$WINDSHAFT_STABLE_VERSION
 RUN yarn
 RUN mkdir logs
@@ -45,8 +45,6 @@ ENV CARTO_SESSION_DOMAIN carto.dev
 ENV CORS_ENABLED true
 
 ENV WINDSHAFT_PORT 8181
-
-WORKDIR /windshaft-cartodb
 
 # Add config
 COPY docker.js /windshaft-cartodb/config/environments/docker.js
